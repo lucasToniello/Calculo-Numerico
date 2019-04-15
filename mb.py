@@ -4,7 +4,7 @@
 import math
 
 def f(x):
-	return math.pow(x, 2) - 3
+	return math.pow(x, 3) - x - 1
 
 def bisseccao(a, b):
 	return (a + b) / 2
@@ -31,9 +31,10 @@ def metodoBisseccao(a, b, e):
 ############################	MAIN	############################
 ####################################################################
 print("\nIntervalo inicial:")
-a = (int)(input("a: "))
-b = (int)(input("b: "))
+# "a" e "b" podem ser float???
+a = (float)(input("a: "))
+b = (float)(input("b: "))
 e = (float)(input("Precisão e: "))
 
-raizAproximada, iteracoes = metodoBisseccaoPolinomial(a, b, e)
+raizAproximada, iteracoes = metodoBisseccao(a, b, e)
 print('\nA média aproximada é {}, e foram necessárias {} iterações' .format(raizAproximada, iteracoes))

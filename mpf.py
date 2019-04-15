@@ -4,10 +4,10 @@
 import math
 
 def f(x):
-	return math.pow(x, 2) + x - 6
+	return math.pow(x, 3) - x - 1
 
 def g(x):
-	return math.sqrt(6 - x)
+	return math.pow(x + 1, 1/3)
 
 def modulo(x):
 	if x < 0:
@@ -41,5 +41,5 @@ e1 = (float)(input("e1: "))
 e2 = (float)(input("e2: "))
 x0 = (float)(input("\nAproximação inicial: "))
 
-raizAproximada, iteracoes = metodoPontoFixoPolinomial(x0, e1, e2)
+raizAproximada, iteracoes = metodoPontoFixo(x0, e1, e2)
 print('\nA média aproximada é {}, e foram necessárias {} iterações' .format(raizAproximada, iteracoes))
