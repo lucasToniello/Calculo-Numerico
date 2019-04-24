@@ -4,14 +4,14 @@
 import math
 
 def f(x):
-	# return math.pow(x, 3) - 9*x + 3
-	# return math.pow(x, 3) - x + 1
-	return 4*math.sin(x) - math.pow(math.e, x)
+	return math.pow(x, 3) - 9*x + 3
+	# return math.pow(x, 3) - x - 1
+	# return 4*math.sin(x) - math.pow(math.e, x)
 
 def df(x):
-	# return 3*math.pow(x, 2) - 9
+	return 3*math.pow(x, 2) - 9
 	# return 3*math.pow(x, 2) - 1
-	return 4*math.cos(x) - math.pow(math.e, x)
+	# return 4*math.cos(x) - math.pow(math.e, x)
 
 def modulo(x):
 	if x < 0:

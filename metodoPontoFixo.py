@@ -4,14 +4,16 @@
 import math
 
 def f(x):
-	# return math.pow(x, 3) - 9*x + 3
-	# return math.pow(x, 3) - x + 1
-	return 4*math.sin(x) - math.pow(math.e, x)
+	return math.pow(x, 3) - 9*x + 3
+	# return math.pow(x, 3) - x - 1
+	# return 4*math.sin(x) - math.pow(math.e, x)
 
+	
+# Função de iteração
 def g(x):
-	# return (math.pow(x, 3) / 9) + (1/3)
+	return (math.pow(x, 3) / 9) + (1/3)
 	# return math.pow(x + 1, 1/3)
-	return x - 2*math.sin(x) + 0.5*math.pow(math.e, x)
+	# return x - 2*math.sin(x) + 0.5*math.pow(math.e, x)
 
 def modulo(x):
 	if x < 0:
