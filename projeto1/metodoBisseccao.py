@@ -5,8 +5,6 @@ import math
 
 def f(x):
 	return math.pow(x, 3) - 9*x + 3
-	# return math.pow(x, 3) - x - 1
-	# return 4*math.sin(x) - math.pow(math.e, x)
 
 def bisseccao(a, b):
 	return (a + b) / 2
@@ -36,7 +34,6 @@ print("\nIntervalo inicial:")
 a = (float)(input("a: "))
 b = (float)(input("b: "))
 e = (float)(input("Precisão e: "))
-print()
 
 raizAproximada, iteracoes = metodoBisseccao(a, b, e)
 print('\nA média aproximada é {}, e foram necessárias {} iterações' .format(raizAproximada, iteracoes))
