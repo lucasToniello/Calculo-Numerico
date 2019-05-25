@@ -4,10 +4,10 @@
 import math
 
 def f(x):
-	return math.pow(x, 3) - 9*x + 3
+	return math.pow(x, 3) - x - 1
 
 def df(x):
-	return 3*math.pow(x, 2) - 9
+	return 3*math.pow(x, 2) - 1
 
 def modulo(x):
 	if x < 0:

@@ -4,7 +4,7 @@
 import math
 
 def f(x):
-	return math.pow(x, 3) - 9*x + 3
+	return math.pow(x, 3) - x - 1
 
 def bisseccao(a, b):
 	return (a + b) / 2

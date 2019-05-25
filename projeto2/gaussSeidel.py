@@ -1,5 +1,5 @@
 #####################################################################
-####################	Gauss-Jacobi	 ############################
+####################	Gauss-Seidel	 ############################
 #####################################################################
 def modulo(x):
 	if x < 0:
@@ -37,14 +37,18 @@ def iteracao(A, B, x0):
 		x1[i] = B[i]
 
 		for j in range(0, n):
-			if i != j:
+			if j < i:
+				x1[i] = x1[i] - (A[i][j] * x1[j])
+			elif j > i:
 				x1[i] = x1[i] - (A[i][j] * x0[j])
+			else:
+				pass
 
 		x1[i] = x1[i] / A[i][i] 
 
 	return x1
 
-def gaussJacobi(A, B, x0, e):
+def gaussSeidel(A, B, x0, e):
 	x1 = []
 
 	while True:
@@ -70,4 +74,4 @@ B = [1, 2, 3, 4]
 x0 = [1/5, 2/5, 3/5, 4/5]
 e = 0.00001
 
-gaussJacobi(A, B, x0, e)
+gaussSeidel(A, B, x0, e)

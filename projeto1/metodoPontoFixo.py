@@ -4,11 +4,11 @@
 import math
 
 def f(x):
-	return math.pow(x, 3) - 9*x + 3
+	return math.pow(math.e, x) - 4*math.pow(x, 2)
 
 # Função de iteração
 def g(x):
-	return (math.pow(x, 3) / 9) + (1/3)
+	return math.pow(x+1, 1/3)
 
 def modulo(x):
 	if x < 0:
