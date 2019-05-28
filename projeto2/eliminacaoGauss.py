@@ -24,7 +24,7 @@ def eliminacao(A, B):
 			# Por fim o vetor B também tem sua subtração efetuada da mesma forma
 			B[i] = round(B[i] - m * B[k], 10)
 
-def resolucaoSistema(A, B):
+def resolucaoSistemaSuperior(A, B):
 
 	# Inicialização do vetor resolução
 	x = [0 for i in range(0, len(A))]
@@ -52,28 +52,15 @@ def pprint(x):
 	i = 1
 
 	for prt in x:
-		print("x{} = {}" .format(i, prt))
+		print("x{} = {:.10f}" .format(i, prt))
 		i = i+1
+
+	print()
 
 #####################################################################
 ############################	MAIN	#############################
 #####################################################################
 
-# A = [[4, -1, 0, 0],
-# 	 [-1, 4, -1, 0], 
-# 	 [0, -1, 4, -1],
-# 	 [0, 0, -1, 4]]
-
-# B = [1, 1, 1, 1]
-
-# A = [[4, 6, 7, 1, 2, 5],
-# 	 [6, 8, 2, 12, 8, 0],
-# 	 [7, 2, 3, 5, 3, 1],
-# 	 [1, 12, 5, 1, 11, 3],
-# 	 [2, 8, 3, 11, 9, 0],
-# 	 [5, 0, 1, 3, 0, 10]]
-
-# B = [10, 2, 3, 6, 12, 3]
 A = []
 B = []
 
@@ -94,6 +81,8 @@ print("Digite os valores do vetor resolução (B):")
 for i in range(0, grau):
 	B.append(int(input("Valor {} do vetor: " .format(i+1))))
 
+print()
 eliminacao(A, B)
-x = resolucaoSistema(A, B)
+x = resolucaoSistemaSuperior(A, B)
+print("Resolução do sistema:")
 pprint(x);

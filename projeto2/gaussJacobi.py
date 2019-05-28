@@ -47,12 +47,14 @@ def iteracao(A, B, x0):
 
 def gaussJacobi(A, B, x0, e):
 	x1 = []
+	iteracoes = 0
 
 	while True:
 		x1 = iteracao(A, B, x0)
+		iteracoes = iteracoes + 1
 
 		if distanciaRelativa(x0, x1) < e:
-			return x1
+			return x1, iteracoes
 		else:
 			x0 = x1
 
@@ -66,24 +68,6 @@ def pprint(x):
 #####################################################################
 ############################	MAIN	#############################
 #####################################################################
-# A = [[4, -1, 0, 0],
-# 	 [-1, 4, -1, 0], 
-# 	 [0, -1, 4, -1],
-# 	 [0, 0, -1, 4]]
-
-# B = [1, 1, 1, 1]
-
-# A = [[7, 1, 9, 0, 2, 1],
-# 	 [3, 6, 2, 9, 6, 0],
-# 	 [5, 4, 1, 8, 3, 2],
-# 	 [1, 2, 9, 7, 0, 2],
-# 	 [4, 6, 1, 0, 2, 8],
-# 	 [3, 0, 4, 7, 6, 9]]
-
-# B = [0, 4, 8, 5, 1, 2]
-
-# x0 = [0, 4/6, 8, 5/7, 1/2, 2/9]
-
 A = []
 B = []
 x0 = []
@@ -113,5 +97,6 @@ for i in range(0, grau):
 
 e = (float)(input("Digite a precisão e: "))
 
-x = gaussJacobi(A, B, x0, e)
+x, iteracoes = gaussJacobi(A, B, x0, e)
+print("\nResolução do sistema após {} iteracoes:" .format(iteracoes))
 pprint(x)
