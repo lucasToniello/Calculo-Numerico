@@ -24,7 +24,6 @@ def eliminacao(A, B):
 			# Por fim o vetor B também tem sua subtração efetuada da mesma forma
 			B[i] = round(B[i] - m * B[k], 10)
 
-
 def resolucaoSistema(A, B):
 
 	# Inicialização do vetor resolução
@@ -41,7 +40,7 @@ def resolucaoSistema(A, B):
 		soma = 0
 
 		# Primeiro substituimos todas os valores de x já conhecidos e somamos eles.
-		for j in range(i + 1, n):
+		for j in range(i + 1, n + 1):
 			soma = soma + A[i][j] * x[j]
 
 		# Para então isolarmos o resultado de x e obtermos seu resultado
@@ -49,15 +48,52 @@ def resolucaoSistema(A, B):
 
 	return x
 
+def pprint(x):
+	i = 1
+
+	for prt in x:
+		print("x{} = {}" .format(i, prt))
+		i = i+1
+
 #####################################################################
 ############################	MAIN	#############################
 #####################################################################
 
-A = [[3, 2, 4],
-	 [1, 1, 2],
-	 [4, 3, -2]]
+# A = [[4, -1, 0, 0],
+# 	 [-1, 4, -1, 0], 
+# 	 [0, -1, 4, -1],
+# 	 [0, 0, -1, 4]]
 
-B = [1, 2, 3]
+# B = [1, 1, 1, 1]
+
+# A = [[4, 6, 7, 1, 2, 5],
+# 	 [6, 8, 2, 12, 8, 0],
+# 	 [7, 2, 3, 5, 3, 1],
+# 	 [1, 12, 5, 1, 11, 3],
+# 	 [2, 8, 3, 11, 9, 0],
+# 	 [5, 0, 1, 3, 0, 10]]
+
+# B = [10, 2, 3, 6, 12, 3]
+A = []
+B = []
+
+grau = (int)(input("Digite o grau do sistema: "))
+print("Digite os valores da matriz A:")
+
+for i in range(0, grau):
+	new = []
+	print("Valores da linha {}: " .format(i+1))
+
+	for j in range(0, grau):
+		new.append((int)(input("Valor {} {}: " .format(i+1, j+1))))
+
+	A.append(new)
+
+print("Digite os valores do vetor resolução (B):")
+
+for i in range(0, grau):
+	B.append(int(input("Valor {} do vetor: " .format(i+1))))
 
 eliminacao(A, B)
-print(resolucaoSistema(A, B))
+x = resolucaoSistema(A, B)
+pprint(x);

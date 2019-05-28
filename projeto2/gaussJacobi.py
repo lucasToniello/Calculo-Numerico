@@ -14,7 +14,8 @@ def maxModulo(x):
 		if modulo(x[i]) > maior:
 			maior = modulo(x[i])
 
-	return maior
+	# Ver essa divisão por 0 aqui
+	return maior + 0.00000000000000001
 
 def distanciaAbsoluta(x0, x1):
 	n = len(x0)
@@ -49,25 +50,68 @@ def gaussJacobi(A, B, x0, e):
 
 	while True:
 		x1 = iteracao(A, B, x0)
-		# print(x1)
 
 		if distanciaRelativa(x0, x1) < e:
-			print(x1)
 			return x1
 		else:
 			x0 = x1
 
+def pprint(x):
+	i = 1
+
+	for prt in x:
+		print("x{} = {}" .format(i, prt))
+		i = i+1
+
 #####################################################################
 ############################	MAIN	#############################
 #####################################################################
-A = [[5, 2, 1, 0],
-	 [2, 5, 2, 1], 
-	 [1, 2, 5, 2], 
-	 [0, 1, 2, 5]]
+# A = [[4, -1, 0, 0],
+# 	 [-1, 4, -1, 0], 
+# 	 [0, -1, 4, -1],
+# 	 [0, 0, -1, 4]]
 
-B = [1, 2, 3, 4]
+# B = [1, 1, 1, 1]
 
-x0 = [1/5, 2/5, 3/5, 4/5]
-e = 0.00001
+# A = [[7, 1, 9, 0, 2, 1],
+# 	 [3, 6, 2, 9, 6, 0],
+# 	 [5, 4, 1, 8, 3, 2],
+# 	 [1, 2, 9, 7, 0, 2],
+# 	 [4, 6, 1, 0, 2, 8],
+# 	 [3, 0, 4, 7, 6, 9]]
 
-gaussJacobi(A, B, x0, e)
+# B = [0, 4, 8, 5, 1, 2]
+
+# x0 = [0, 4/6, 8, 5/7, 1/2, 2/9]
+
+A = []
+B = []
+x0 = []
+
+grau = (int)(input("Digite o grau do sistema: "))
+print("Digite os valores da matriz A:")
+
+for i in range(0, grau):
+	new = []
+	print("Valores da linha {}: " .format(i+1))
+
+	for j in range(0, grau):
+		new.append((float)(input("Valor {} {}: " .format(i+1, j+1))))
+
+	A.append(new)
+
+print("Digite os valores do vetor resolução (B):")
+
+for i in range(0, grau):
+	B.append(float(input("Valor {} do vetor: " .format(i+1))))
+
+# Botar o nome oficial aqui
+print("Digite os valores do vetor x0:")
+
+for i in range(0, grau):
+	x0.append(float(input("Valor {} do vetor: " .format(i+1))))
+
+e = (float)(input("Digite a precisão e: "))
+
+x = gaussJacobi(A, B, x0, e)
+pprint(x)

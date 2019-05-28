@@ -54,12 +54,32 @@ def resolucaoSistema(A, B):
 ############################	MAIN	#############################
 #####################################################################
 
-A = [[4, 2, 1, 0],
-	 [2, 4, 2, 1],
-	 [1, 2, 4, 2], 
-	 [0, 1, 2, 4]]
+# A = [[4, 2, 1, 0],
+# 	 [2, 4, 2, 1],
+# 	 [1, 2, 4, 2], 
+# 	 [0, 1, 2, 4]]
 
-B = [10, 10, 10, 10]
+# B = [10, 10, 10, 10]
+
+A = []
+B = []
+
+grau = (int)(input("Digite o grau do sistema: "))
+print("Digite os valores da matriz A:")
+
+for i in range(0, grau):
+	new = []
+	print("Valores da linha {}: " .format(i+1))
+
+	for j in range(0, grau):
+		new.append((int)(input("Valor {} {}: " .format(i+1, j+1))))
+
+	A.append(new)
+
+print("Digite os valores do vetor resolução (B):")
+
+for i in range(0, grau):
+	B.append(int(input("Valor {} do vetor: " .format(i+1))))
 
 G = fatoracaoCholesky(A)
 # Faz a transposição de G
