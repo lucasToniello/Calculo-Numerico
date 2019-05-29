@@ -8,13 +8,13 @@ def modulo(x):
 		return x
 
 def maxModulo(x):
-	maior = 0
+	maior = 0.0000000001
 
 	for i in range(0, len(x)):
 		if modulo(x[i]) > maior:
 			maior = modulo(x[i])
 
-	return maior + 0.00000000000000001
+	return maior
 
 def distanciaAbsoluta(x0, x1):
 	n = len(x0)
@@ -79,24 +79,15 @@ grau = (int)(input("Digite o grau do sistema: "))
 print("Digite os valores da matriz A:")
 
 for i in range(0, grau):
-	new = []
-	print("Valores da linha {}: " .format(i+1))
-
-	for j in range(0, grau):
-		new.append((float)(input("Valor {} {}: " .format(i+1, j+1))))
-
+	new = list(map(float, input().split()))
 	A.append(new)
 
-print("Digite os valores do vetor resolução (B):")
-
-for i in range(0, grau):
-	B.append(float(input("Valor {} do vetor: " .format(i+1))))
+print("Digite os valores do vetor constante (B):")
+B = list(map(float, input().split()))
 
 # Botar o nome oficial aqui
-print("Digite os valores do vetor x0:")
-
-for i in range(0, grau):
-	x0.append(float(input("Valor {} do vetor: " .format(i+1))))
+print("Digite os valores do vetor x0")
+x0 = list(map(float, input().split()))
 
 e = (float)(input("Digite a precisão e: "))
 

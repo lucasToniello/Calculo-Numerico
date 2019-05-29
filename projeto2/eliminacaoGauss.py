@@ -20,9 +20,11 @@ def eliminacao(A, B):
 				# Novamente, para evitarmos erros de pontos flutuantes, os valores da subtração
 				# são aproximados em 10 casas decimais.
 				A[i][j] = round(A[i][j] - m * A[k][j], 10)
+				# A[i][j] = A[i][j] - m * A[k][j]
 
 			# Por fim o vetor B também tem sua subtração efetuada da mesma forma
 			B[i] = round(B[i] - m * B[k], 10)
+			# A[i][j] = A[i][j] - m * A[k][j]
 
 def resolucaoSistemaSuperior(A, B):
 
@@ -52,7 +54,7 @@ def pprint(x):
 	i = 1
 
 	for prt in x:
-		print("x{} = {:.10f}" .format(i, prt))
+		print("x{} = {}" .format(i, prt))
 		i = i+1
 
 	print()
@@ -68,20 +70,12 @@ grau = (int)(input("Digite o grau do sistema: "))
 print("Digite os valores da matriz A:")
 
 for i in range(0, grau):
-	new = []
-	print("Valores da linha {}: " .format(i+1))
-
-	for j in range(0, grau):
-		new.append((int)(input("Valor {} {}: " .format(i+1, j+1))))
-
+	new = list(map(float, input().split()))
 	A.append(new)
 
-print("Digite os valores do vetor resolução (B):")
+print("Digite os valores do vetor constante (B):")
+B = list(map(float, input().split()))
 
-for i in range(0, grau):
-	B.append(int(input("Valor {} do vetor: " .format(i+1))))
-
-print()
 eliminacao(A, B)
 x = resolucaoSistemaSuperior(A, B)
 print("Resolução do sistema:")
