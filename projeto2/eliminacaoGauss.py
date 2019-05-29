@@ -20,12 +20,11 @@ def eliminacao(A, B):
 				# Novamente, para evitarmos erros de pontos flutuantes, os valores da subtração
 				# são aproximados em 10 casas decimais.
 				A[i][j] = round(A[i][j] - m * A[k][j], 10)
-				# A[i][j] = A[i][j] - m * A[k][j]
 
 			# Por fim o vetor B também tem sua subtração efetuada da mesma forma
 			B[i] = round(B[i] - m * B[k], 10)
-			# A[i][j] = A[i][j] - m * A[k][j]
 
+# Resolve um sistema triângular superior
 def resolucaoSistemaSuperior(A, B):
 
 	# Inicialização do vetor resolução
@@ -45,11 +44,12 @@ def resolucaoSistemaSuperior(A, B):
 		for j in range(i + 1, n + 1):
 			soma = soma + A[i][j] * x[j]
 
-		# Para então isolarmos o resultado de x e obtermos seu resultado
+		# Para então isolarmos o resultado de xi e obtermos seu resultado
 		x[i] = (B[i] - soma) / A[i][i]
 
 	return x
 
+# Função que printa na tela os resultados do sistema
 def pprint(x):
 	i = 1
 
@@ -66,6 +66,7 @@ def pprint(x):
 A = []
 B = []
 
+# Recebemos os valores de entrada do usuário
 grau = (int)(input("Digite o grau do sistema: "))
 print("Digite os valores da matriz A:")
 
@@ -76,7 +77,10 @@ for i in range(0, grau):
 print("Digite os valores do vetor constante (B):")
 B = list(map(float, input().split()))
 
+# Faz a eliminação de gauss da matriz A, deixando ela da forma triânguluar superior
 eliminacao(A, B)
+
+# E então resolve o sistema dessa matriz escalonada
 x = resolucaoSistemaSuperior(A, B)
 print("Resolução do sistema:")
 pprint(x);

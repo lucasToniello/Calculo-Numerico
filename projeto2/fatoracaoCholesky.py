@@ -5,16 +5,22 @@ import math
 import sys
 
 def fatoracaoCholesky(A):
-	# Verificar se ela é simétrica?
+	# Váriavel n irá conter o grau das operações
 	n = len(A)
+	
+	# Inicialização da matriz G (Fator de Cholesky)
 	G = [[0 for i in range(0, n)] for i in range(0, n)]
+	
 
+	# Loop que vai achar todos os valores da matriz G
 	for k in range(0, n):
 		soma = 0
 
 		for j in range(0, k):
 			soma = soma + math.pow(G[k][j], 2)
 
+		# Caso alguma raiz seja negativa, temos que a matriz não é definida positiva
+		# Caso isso aconteça, o bloco seguinte vai localizar o erro e encerrar o programa
 		try:
 			G[k][k] = math.sqrt(A[k][k] - soma)
 		except:
@@ -31,6 +37,7 @@ def fatoracaoCholesky(A):
 
 	return G
 
+# Resolve um sistema triângular superior
 def resolucaoSistemaSuperior(A, B):
 
 	# Inicialização do vetor resolução
@@ -50,11 +57,12 @@ def resolucaoSistemaSuperior(A, B):
 		for j in range(i + 1, n + 1):
 			soma = soma + A[i][j] * x[j]
 
-		# Para então isolarmos o resultado de x e obtermos seu resultado
+		# Para então isolarmos o resultado de xi e obtermos seu resultado
 		x[i] = (B[i] - soma) / A[i][i]
 
 	return x
 
+# Resolve um sistema triângular inferior
 def resolucaoSistemaInferior(A, B):
 
 	# Inicialização do vetor resolução
@@ -85,6 +93,7 @@ def transposta(A):
 	T = [[A[j][i] for j in range(len(A))] for i in range(len(A[0]))]
 	return T
 
+# Função que printa na tela os resultados do sistema e a matriz G
 def pprint(x):
 	i = 1
 
@@ -105,6 +114,7 @@ def pprint(x):
 A = []
 B = []
 
+# Recebemos os valores de entrada do usuário
 grau = (int)(input("Digite o grau do sistema: "))
 print("Digite os valores da matriz A:")
 
@@ -113,7 +123,7 @@ for i in range(0, grau):
 	A.append(new)
 
 print("Digite os valores do vetor constante (B):")
-B = list(map(int, input().split()))
+B = list(map(float, input().split()))
 
 # Acha a matriz G a partir da fatoração de Cholesky
 G = fatoracaoCholesky(A)
