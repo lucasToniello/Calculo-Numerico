@@ -1,8 +1,9 @@
 import math
 
+# Obs: é necessário escolher a função que se deseja integrar aqui
 def f(x):
-	# return math.pow(math.e, x) * math.sin(x)
-	return math.pow(math.e, -math.pow(x, 2))
+	return math.pow(math.e, x) * math.sin(x)
+	# return math.pow(math.e, -math.pow(x, 2))
 
 def integracaoTrapezios(a, b, numIntervalos):
 
@@ -22,4 +23,4 @@ a = float(input("Valor inferior da integral: "))
 b = float(input("Valor superior da integral: "))
 numIntervalos = int(input("Digite o número de intervalos: "))
 
-print("O valor da integral é: {} " .format(integracaoTrapezios(a, b, numIntervalos)))
+print("O valor da integral é: {}\n " .format(integracaoTrapezios(a, b, numIntervalos)))
